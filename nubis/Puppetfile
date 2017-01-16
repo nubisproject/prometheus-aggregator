@@ -1,0 +1,14 @@
+forge "https://forgeapi.puppetlabs.com"
+
+mod 'gozer/nubis-nubis_prometheus',
+    :git => 'https://github.com/gozer/nubis-puppet-prometheus.git'
+
+mod 'gozer/nubis-nubis_alertmanager',
+    :git => 'https://github.com/gozer/nubis-puppet-alertmanager.git'
+
+mod 'gozer/nubis-nubis_traefik',
+    :git => 'https://github.com/gozer/nubis-puppet-traefik.git'
+
+mod 'gozer/nubis-nubis_grafana',
+    :git => 'https://github.com/gozer/nubis-puppet-grafana.git'
+
