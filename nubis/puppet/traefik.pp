@@ -1,4 +1,4 @@
 class { 'nubis_traefik':
-  project  => "moc",
+  dns      => "moc",
   tag_name => "federation",
 }
