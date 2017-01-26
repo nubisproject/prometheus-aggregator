@@ -1,0 +1,11 @@
+ALERT PrometheusDown
+  IF up{job=~"^federate.*"} != 1
+  FOR 15m
+  LABELS {
+    severity="critical",
+    type="meta-failure"
+  }
+  ANNOTATIONS {
+    summary = "Prometheus not available",
+    description = "Can't scrape from Prometheus target {{ $labels.job }} at {{ $labels.instance }}"
+  }
