@@ -8,6 +8,7 @@ module "worker" {
   ami           = "${var.ami}"
   instance_type = "t2.small"
   elb           = "${module.load_balancer.name}"
+  wait_for_capacity_timeout = "20m"
   min_instances = 1
   root_storage_size = 64
   nubis_sudo_groups = "nubis_global_admins,team_moc"
