@@ -11,7 +11,7 @@ mod 'gozer/nubis-nubis_traefik',
 
 mod 'gozer/nubis-nubis_grafana',
     :git => 'https://github.com/gozer/nubis-puppet-grafana.git',
-    :ref => 'e05ddd3864e9a9431549c89a5490d60ee1bd2c83'
+    :ref => '36cbb5a0b4b69cdb67b552b19293df351aec8abe'
 
 mod 'bfraser/grafana',
     :git => 'https://github.com/bfraser/puppet-grafana.git',
