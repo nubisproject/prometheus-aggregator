@@ -14,4 +14,8 @@ variable "service_name" {
   default = "federator"
 }
 
+variable "instance_type" {
+  default = "t2.medium"
+}
+
 variable "ami" {}

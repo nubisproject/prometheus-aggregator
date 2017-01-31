@@ -6,7 +6,7 @@ module "worker" {
   service_name  = "${var.service_name}"
   purpose       = "webserver"
   ami           = "${var.ami}"
-  instance_type = "t2.small"
+  instance_type = "${var.instance_type}"
   elb           = "${module.load_balancer.name}"
   wait_for_capacity_timeout = "20m"
   min_instances = 1
