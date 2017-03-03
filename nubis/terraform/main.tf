@@ -1,5 +1,5 @@
 module "worker" {
-  source        = "github.com/nubisproject/nubis-terraform//worker?ref=v1.3.0"
+  source        = "github.com/nubisproject/nubis-terraform//worker?ref=master"
   region        = "${var.region}"
   environment   = "${var.environment}"
   account       = "${var.account}"
@@ -15,7 +15,7 @@ module "worker" {
 }
 
 module "load_balancer" {
-  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v1.3.0"
+  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=master"
   region       = "${var.region}"
   environment  = "${var.environment}"
   account      = "${var.account}"
@@ -33,7 +33,7 @@ module "load_balancer" {
 }
 
 module "dns" {
-  source       = "github.com/nubisproject/nubis-terraform//dns?ref=v1.3.0"
+  source       = "github.com/nubisproject/nubis-terraform//dns?ref=master"
   region       = "${var.region}"
   environment  = "${var.environment}"
   account      = "${var.account}"
@@ -43,7 +43,7 @@ module "dns" {
 }
 
 module "backups" {
-  source       = "github.com/nubisproject/nubis-terraform//bucket?ref=v1.3.0"
+  source       = "github.com/nubisproject/nubis-terraform//bucket?ref=master"
   region       = "${var.region}"
   environment  = "${var.environment}"
   account      = "${var.account}"
