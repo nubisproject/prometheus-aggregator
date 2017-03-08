@@ -1,0 +1,11 @@
+{
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get update"
+      ],
+      "order": 5
+    }
+  ]
+}
