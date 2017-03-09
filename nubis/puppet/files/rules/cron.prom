@@ -3,7 +3,8 @@ ALERT CronTooLong
   FOR 15m
   LABELS {
     severity="critical",
-    type="cron-failure"
+    type="cron-failure",
+    type="meta-failure"
   }
   ANNOTATIONS {
     summary = "Cron Job Taking too long",
