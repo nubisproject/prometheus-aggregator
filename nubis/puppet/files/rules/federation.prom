@@ -17,6 +17,6 @@ ALERT PrometheusAlert
     type="meta-failure"
   }
   ANNOTATIONS {
-    summary = "Prometheus alert {{ $labels.alertname }} for {{ $labels.account }}"
+    summary = "Prometheus alert {{ $labels.alertname }} for {{ $labels.account }}",
     description = "Prometheus alert {{ $labels.alertname }} for {{ $labels.account }}"
   }
