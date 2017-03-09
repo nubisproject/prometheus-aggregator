@@ -9,3 +9,14 @@ ALERT PrometheusDown
     summary = "Prometheus not available",
     description = "Can't scrape from Prometheus target {{ $labels.job }} at {{ $labels.instance }}"
   }
+
+ALERT PrometheusAlert
+  IF ALERTS{type!="meta-failure", alertstate="firing"} == 1
+  FOR 1m
+  LABELS {
+    type="meta-failure"
+  }
+  ANNOTATIONS {
+    summary = "Prometheus alert {{ $labels.alertname }} for {{ $labels.account }}"
+    description = "Prometheus alert {{ $labels.alertname }} for {{ $labels.account }}"
+  }
