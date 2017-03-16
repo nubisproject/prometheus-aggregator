@@ -11,7 +11,7 @@ ALERT PrometheusDown
   }
 
 ALERT PrometheusAlert
-  IF ALERTS{type!="meta-failure", alertstate="firing"} == 1
+  IF ALERTS{type!="meta-failure", platform != "nubis", alertstate="firing"} == 1
   FOR 1m
   LABELS {
     type="meta-failure",
