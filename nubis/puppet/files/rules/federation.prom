@@ -14,7 +14,8 @@ ALERT PrometheusAlert
   IF ALERTS{type!="meta-failure", alertstate="firing"} == 1
   FOR 1m
   LABELS {
-    type="meta-failure"
+    type="meta-failure",
+    federated_alertname="{{ $labels.alertname }}"
   }
   ANNOTATIONS {
     summary = "Prometheus alert {{ $labels.alertname }} for {{ $labels.account }}",
