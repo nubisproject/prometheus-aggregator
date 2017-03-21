@@ -1,0 +1,12 @@
+ALERT ELBLatency2
+  IF aws_elb_latency_maximum > 2
+  FOR 5m
+  LABELS {
+    severity="critical",
+    type="elb-latency",
+    type="meta-failure"
+  }
+  ANNOTATIONS {
+    summary = "",
+    description = "ELB latency is {{ $value }} > 2s"
+  }

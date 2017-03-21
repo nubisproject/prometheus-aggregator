@@ -1,0 +1,12 @@
+ALERT Load20
+  IF node_load1 > 20
+  FOR 5m
+  LABELS {
+    severity="warning",
+    type="load-usage",
+    type="meta-failure"
+  }
+  ANNOTATIONS {
+    summary = "",
+    description = "Load is {{ $value }} > 20"
+  }
