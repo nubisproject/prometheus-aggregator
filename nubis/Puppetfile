@@ -2,14 +2,14 @@ forge "https://forgeapi.puppetlabs.com"
 
 mod 'gozer/nubis-nubis_prometheus',
     :git => 'https://github.com/gozer/nubis-puppet-prometheus.git',
-    :ref => '9e656f1d7c2e70a46e5adc2b5b9699cbfb2590c8'
+    :ref => '47580d041cce54ea09b873990567cebbb1904e3b'
 
 mod 'gozer/nubis-nubis_alertmanager',
     :git => 'https://github.com/gozer/nubis-puppet-alertmanager.git'
 
 mod 'gozer/nubis-nubis_traefik',
     :git => 'https://github.com/gozer/nubis-puppet-traefik.git',
-    :ref => '589235055e89d8b01f1f8d4d8f1949d0bb21c03f'
+    :ref => '9f0c9b59424c04e446b1e3b7cb0b0ffe5799eb70'
 
 mod 'gozer/nubis-nubis_grafana',
     :git => 'https://github.com/gozer/nubis-puppet-grafana.git',
