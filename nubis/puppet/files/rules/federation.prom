@@ -1,6 +1,6 @@
 ALERT PrometheusDown
   IF up{job=~"^federate.*"} != 1
-  FOR 15m
+  FOR 60m
   LABELS {
     severity="critical",
     type="meta-failure"

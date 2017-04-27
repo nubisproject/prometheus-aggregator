@@ -1,6 +1,6 @@
 ALERT DiskUsage20
   IF node_filesystem_free{mountpoint="/"} / node_filesystem_size{mountpoint="/"} * 100 < 20
-  FOR 15m
+  FOR 60m
   LABELS {
     severity="warning",
     type="disk-usage",

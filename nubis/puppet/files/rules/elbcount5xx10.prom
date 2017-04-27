@@ -1,5 +1,5 @@
 ALERT ELBCount5xx
-  IF aws_elb_httpcode_elb_5_xx_sum > 10
+  IF aws_elb_httpcode_elb_5_xx_sum > 15
   FOR 1m
   LABELS {
     severity="critical",
