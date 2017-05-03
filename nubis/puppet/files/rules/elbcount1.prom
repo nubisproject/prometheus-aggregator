@@ -1,5 +1,5 @@
 ALERT ELBCount1
-  IF aws_elb:host_count:max < 1
+  IF (aws_elb:host_count:max < 1) and {environment="prod"}
   FOR 5m
   LABELS {
     severity="critical",

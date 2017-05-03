@@ -1,5 +1,5 @@
 ALERT Load20
-  IF node_load1 > 20
+  IF (node_load1 > 20) and {environment="prod"}
   FOR 5m
   LABELS {
     severity="warning",

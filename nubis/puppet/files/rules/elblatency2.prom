@@ -1,5 +1,5 @@
 ALERT ELBLatency2
-  IF aws_elb_latency_maximum > 2
+  IF (aws_elb_latency_maximum > 2) and {environment="prod"}
   FOR 5m
   LABELS {
     severity="critical",

@@ -1,5 +1,5 @@
 ALERT Inode10
-  IF node_filesystem_files_free{mountpoint="/"} / node_filesystem_files{mountpoint="/"} * 100 < 10
+  IF (node_filesystem_files_free{mountpoint="/"} / node_filesystem_files{mountpoint="/"} * 100 < 10) and {environment="prod"}
   FOR 5m
   LABELS {
     severity="critical",
