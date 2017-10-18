@@ -2,7 +2,7 @@ forge "https://forgeapi.puppetlabs.com"
 
 mod 'gozer/nubis-nubis_prometheus',
     :git => 'https://github.com/gozer/nubis-puppet-prometheus.git',
-    :ref => '9df6c8d71b74573d1c9f7bc57694728c07051f48'
+    :ref => 'f364e8f303ac4fabd87a997fdc6022e5330d06a6'
 
 mod 'gozer/nubis-nubis_alertmanager',
     :git => 'https://github.com/gozer/nubis-puppet-alertmanager.git',
