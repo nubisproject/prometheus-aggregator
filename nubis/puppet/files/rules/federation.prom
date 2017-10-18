@@ -1,5 +1,5 @@
 ALERT PrometheusDown
-  IF up{job=~"^federate.*"} != 1
+  IF (up{job=~"^federate.*"} != 1) and {environment="prod"}
   FOR 15m
   LABELS {
     severity="critical",
@@ -11,7 +11,7 @@ ALERT PrometheusDown
   }
 
 ALERT PrometheusAlert
-  IF ALERTS{type!="meta-failure", platform != "nubis", alertstate="firing"} == 1
+  IF (ALERTS{type!="meta-failure", platform != "nubis", alertstate="firing"} == 1) and {environment="prod"}
   FOR 1m
   LABELS {
     type="meta-failure",

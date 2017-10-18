@@ -1,0 +1,12 @@
+ALERT DiskUsage10
+  IF (node_filesystem_free{mountpoint="/"} / node_filesystem_size{mountpoint="/"} * 100 < 10) and {environment="prod"}
+  FOR 20m
+  LABELS {
+    severity="critical",
+    type="disk-usage",
+    type="meta-failure"
+  }
+  ANNOTATIONS {
+    summary = "",
+    description = "Disk percentage free is {{ $value }} < 10%"
+  }

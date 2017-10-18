@@ -1,0 +1,12 @@
+ALERT ELBCount5xx
+  IF (aws_elb_httpcode_elb_5_xx_sum > 15) and {environment="prod"}
+  FOR 1m
+  LABELS {
+    severity="critical",
+    type="elb-count-5xx",
+    type="meta-failure"
+  }
+  ANNOTATIONS {
+    summary = "",
+    description = "ELB 5xx count is {{ $value }} > 10"
+  }
