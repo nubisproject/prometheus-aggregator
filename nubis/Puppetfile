@@ -10,7 +10,7 @@ mod 'gozer/nubis-nubis_alertmanager',
 
 mod 'gozer/nubis-nubis_traefik',
     :git => 'https://github.com/gozer/nubis-puppet-traefik.git',
-    :ref => '267783262351158f785f61cf55f01edf19723b7c'
+    :ref => '47a396368e86dbea74171c77351a1a4e4cfe8c2b'
 
 mod 'gozer/nubis-nubis_grafana',
     :git => 'https://github.com/gozer/nubis-puppet-grafana.git',
