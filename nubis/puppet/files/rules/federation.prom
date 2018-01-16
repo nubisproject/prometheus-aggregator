@@ -1,5 +1,5 @@
 ALERT PrometheusDown
-  IF (up{job=~"^federate.*"} != 1) and {environment="prod"}
+  IF (up{job=~"^federate.*"} != 1)
   FOR 15m
   LABELS {
     severity="critical",
