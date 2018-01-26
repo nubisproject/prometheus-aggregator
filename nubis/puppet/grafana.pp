@@ -9,7 +9,7 @@ class { 'grafana':
     app_mode          => 'production',
     'server'          => {
       protocol => 'http',
-      root_url => '/executive-dashboard-%%ENVIRONMENT%%',
+      root_url => '/executive-dashboard',
     },
     'auth.anonymous'  => {
       enabled => true,
@@ -63,17 +63,8 @@ file { '/var/lib/grafana/dashboards':
   mode    => '0640',
   recurse => true,
   purge   => true,
-  source  => 'puppet:///nubis/files/grafana/dashboards',
+  source  => 'puppet:///nubis/files/dashboards',
   require => [
     Class['grafana'],
   ]
-}
-
-# grafana startup
-file { '/etc/nubis.d/99-grafana-startup':
-  ensure => present,
-  owner  => root,
-  group  => root,
-  mode   => '0755',
-  source =>  'puppet:///nubis/files/grafana-startup',
 }
