@@ -63,7 +63,7 @@ file { '/var/lib/grafana/dashboards':
   mode    => '0640',
   recurse => true,
   purge   => true,
-  source  => 'puppet:///nubis/files/grafana/dashboards',
+  source  => 'puppet:///nubis/files/dashboards',
   require => [
     Class['grafana'],
   ]
