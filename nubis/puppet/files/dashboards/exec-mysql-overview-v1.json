@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.6.3"
+      "version": "4.5.1"
     },
     {
       "type": "panel",
@@ -51,7 +51,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "hideControls": true,
+  "hideControls": false,
   "id": null,
   "links": [],
   "refresh": "1m",
@@ -3431,6 +3431,7 @@
   "schemaVersion": 14,
   "style": "dark",
   "tags": [
+    "nubis",
     "Percona",
     "MySQL"
   ],
@@ -3528,7 +3529,7 @@
         "multi": false,
         "name": "project",
         "options": [],
-        "query": "query_result(nubis{purpose = \"db-monitor\"})",
+        "query": "query_result(nubis{account = \"$account\", purpose = \"db-monitor\"})",
         "refresh": 1,
         "regex": ".*project=\"(.*?)\".*",
         "sort": 0,
@@ -3553,9 +3554,7 @@
         "regex": "",
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [
-          "nubis"
-        ],
+        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -3622,5 +3621,5 @@
   },
   "timezone": "browser",
   "title": "Nubis - MySQL Overview",
-  "version": 4
+  "version": 1
 }
