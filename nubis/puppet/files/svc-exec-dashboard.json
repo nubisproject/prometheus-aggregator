@@ -1,0 +1,16 @@
+{
+  "service": {
+    "name": "executive-dashboard",
+    "port": 3000,
+    "tags": [
+      "%%ENVIRONMENT%%",
+      "environment=%%ENVIRONMENT%%",
+      "sso=true"
+    ],
+    "check": {
+       "http": "http://localhost:3000/login",
+       "interval": "10s",
+       "timeout": "1s"
+    }
+  }
+}
