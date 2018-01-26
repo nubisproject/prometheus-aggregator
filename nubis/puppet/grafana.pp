@@ -42,7 +42,7 @@ grafana_datasource { 'prometheus':
   grafana_user     => 'admin',
   grafana_password => 'admin',
   type             => 'prometheus',
-  url              => 'http://localhost:81/prometheus',
+  url              => 'http://localhost:9090/prometheus',
   access_mode      => 'proxy',
   is_default       => true,
 }->
