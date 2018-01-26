@@ -20,9 +20,11 @@ module "worker" {
   instance_type = "${var.instance_type}"
   elb           = "${module.load_balancer.name}"
   wait_for_capacity_timeout = "20m"
-  min_instances = 1
-  root_storage_size = 64
-  nubis_sudo_groups = "nubis_global_admins,team_moc"
+  min_instances         = 1
+  root_storage_size     = 64
+  nubis_sudo_groups     = "nubis_global_admins,team_moc"
+  security_group_custom = true
+  security_group        = "${aws_security_group.aggregrator-extra.id}"
 }
 
 resource "aws_security_group" "aggregrator-extra" {
@@ -56,6 +58,22 @@ resource "aws_security_group" "aggregrator-extra" {
     security_groups = [
       "${module.info.sso_security_group}"
     ]
+  }
+
+  # Traefik for the ELBs
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # Traefik for the ELBs
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
