@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.6.3"
+      "version": "4.5.1"
     },
     {
       "type": "panel",
@@ -98,7 +98,8 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{method}} - {{code}}",
-              "refId": "A"
+              "refId": "A",
+              "step": 20
             }
           ],
           "thresholds": [],
@@ -185,7 +186,8 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Request",
-              "refId": "A"
+              "refId": "A",
+              "step": 40
             }
           ],
           "thresholds": [],
@@ -260,7 +262,8 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Access",
-              "refId": "A"
+              "refId": "A",
+              "step": 40
             }
           ],
           "thresholds": [],
@@ -906,7 +909,9 @@
   ],
   "schemaVersion": 14,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "nubis"
+  ],
   "templating": {
     "list": [
       {
@@ -919,9 +924,9 @@
         "multi": false,
         "name": "account",
         "options": [],
-        "query": "nubis",
+        "query": "label_values(account)",
         "refresh": 1,
-        "regex": ".*account=\"(.+?)\".*",
+        "regex": "",
         "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
@@ -964,9 +969,7 @@
         "regex": "",
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [
-          "nubis"
-        ],
+        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -1004,5 +1007,5 @@
   },
   "timezone": "",
   "title": "Nubis - Apache Dashboard",
-  "version": 4
+  "version": 1
 }
