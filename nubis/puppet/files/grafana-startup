@@ -2,12 +2,7 @@
 
 OS_RELEASE=$(lsb_release -s -r)
 
-eval "$(nubis-metadata)"
-
-# replace %%ENVIRONMENT%% with actual environment
-if [ "${NUBIS_ENVIRONMENT}" != "" ]; then
-    find /etc/grafana -type f -name '*.json' -print0 | xargs -0 --verbose sed -i -e "s/%%ENVIRONMENT%%/$NUBIS_ENVIRONMENT/g"
-fi
+/usr/bin/crudini --set /etc/grafana/grafana.ini server root_url /admin/executive-dashboard-$(nubis-metadata NUBIS_ENVIRONMENT)
 
 if [ "${OS_RELEASE}" == "14.04" ]; then
     /etc/init.d/grafana-server restart
