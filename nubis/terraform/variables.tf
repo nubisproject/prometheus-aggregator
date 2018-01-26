@@ -18,4 +18,8 @@ variable "instance_type" {
   default = "t2.medium"
 }
 
+variable "technical_owner" {
+  default = "infra-aws@mozilla.com"
+}
+
 variable "ami" {}
