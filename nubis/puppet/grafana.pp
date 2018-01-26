@@ -68,3 +68,12 @@ file { '/var/lib/grafana/dashboards':
     Class['grafana'],
   ]
 }
+
+file { '/etc/consul/svc-exec-dashboard.json':
+  ensure  => file,
+  owner   => root,
+  group   => root,
+  mode    => '0644',
+  source  => 'puppet:///nubis/files/svc-exec-dashboard.json',
+  require => Class['grafana'],
+}
