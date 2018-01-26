@@ -65,7 +65,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource",
+          "datasource": "prometheus",
           "fill": 1,
           "id": 2,
           "legend": {
