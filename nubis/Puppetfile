@@ -6,7 +6,7 @@ mod 'gozer/nubis-nubis_prometheus',
 
 mod 'gozer/nubis-nubis_alertmanager',
     :git => 'https://github.com/gozer/nubis-puppet-alertmanager.git',
-    :ref => 'b6154607271b3f9bfc19cae491fb35b00e0cef9d'
+    :ref => 'd0019f9e67f423a2bf09b663e46097221fd640cd'
 
 mod 'gozer/nubis-nubis_traefik',
     :git => 'https://github.com/gozer/nubis-puppet-traefik.git',
