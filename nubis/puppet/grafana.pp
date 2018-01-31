@@ -89,3 +89,13 @@ file { '/etc/consul/svc-exec-dashboard.json':
   source  => 'puppet:///nubis/files/svc-exec-dashboard.json',
   require => Class['grafana'],
 }
+
+# Override default grafana home page
+file { '/usr/share/grafana/public/dashboards/home.json':
+  ensure  => file,
+  owner   => root,
+  group   => root,
+  mode    => '0644',
+  source  => 'puppet:///nubis/files/default/home.json',
+  require =>  Class['grafana'],
+}
