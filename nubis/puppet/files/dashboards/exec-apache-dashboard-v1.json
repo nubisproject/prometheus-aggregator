@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.5.1"
+      "version": "4.6.3"
     },
     {
       "type": "panel",
@@ -66,7 +66,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": "prometheus",
-          "fill": 1,
+          "fill": 2,
           "id": 2,
           "legend": {
             "alignAsTable": true,
@@ -80,7 +80,7 @@
             "values": true
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "null",
           "percentage": false,
@@ -94,7 +94,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(apache_cnt_method_code{account = \"$account\", method =~ \"GET|HEAD|POST\"} * on (instance) group_left (project, arena, environment, account) nubis {project = \"$project\", environment =~ \"$environment\"}) by (method, code)",
+              "expr": "avg(rate(apache_cnt_method_code{account = \"$account\", method =~ \"GET|HEAD|POST\"}[5m]) * on(instance) group_left (project, arena,account) nubis{project = \"$project\" , environment =~ \"$environment\"}) by (method, code)",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{method}} - {{code}}",
@@ -105,7 +105,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Apache Method Count",
+          "title": "Apache Method  Rate",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -156,7 +156,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": "prometheus",
-          "fill": 1,
+          "fill": 2,
           "id": 3,
           "legend": {
             "avg": false,
@@ -168,7 +168,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "null",
           "percentage": false,
@@ -232,7 +232,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": "prometheus",
-          "fill": 1,
+          "fill": 2,
           "id": 4,
           "legend": {
             "avg": false,
@@ -244,7 +244,7 @@
             "values": false
           },
           "lines": true,
-          "linewidth": 1,
+          "linewidth": 2,
           "links": [],
           "nullPointMode": "null",
           "percentage": false,
@@ -299,6 +299,96 @@
               "max": null,
               "min": null,
               "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 302,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "prometheus",
+          "decimals": 2,
+          "description": "Average worker status between all instances",
+          "fill": 2,
+          "id": 13,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(rate(apache_workers{account = \"$account\"}[5m]) * on (instance) group_left (project, account, environment) nubis{ project = \"$project\", environment =~ \"$environment\" } ) by (state)",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "{{state}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Apache Worker status",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
             }
           ]
         }
