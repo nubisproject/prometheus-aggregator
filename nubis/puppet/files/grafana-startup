@@ -2,7 +2,7 @@
 
 OS_RELEASE=$(lsb_release -s -r)
 
-/usr/bin/crudini --set /etc/grafana/grafana.ini server root_url /admin/executive-dashboard-$(nubis-metadata NUBIS_ENVIRONMENT)
+/usr/bin/crudini --set /etc/grafana/grafana.ini server root_url "/admin/executive-dashboard-$(nubis-metadata NUBIS_ENVIRONMENT)"
 
 if [ "${OS_RELEASE}" == "14.04" ]; then
     /etc/init.d/grafana-server restart
