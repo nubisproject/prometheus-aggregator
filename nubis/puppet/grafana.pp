@@ -33,11 +33,11 @@ class { 'grafana':
       enabled => true,
     },
   },
-}->
-exec { 'wait-for grafana startup':
+}
+-> exec { 'wait-for grafana startup':
   command => '/bin/sleep 15',
-}->
-grafana_datasource { 'prometheus':
+}
+-> grafana_datasource { 'prometheus':
   grafana_url      => 'http://localhost:3000',
   grafana_user     => 'admin',
   grafana_password => 'admin',
@@ -45,14 +45,14 @@ grafana_datasource { 'prometheus':
   url              => 'http://localhost:9090/prometheus',
   access_mode      => 'proxy',
   is_default       => true,
-}->
-exec { 'disable basic auth':
+}
+-> exec { 'disable basic auth':
   command => '/usr/bin/crudini --set /etc/grafana/grafana.ini auth.basic enabled false',
   require => [
     Package['crudini'],
   ]
-}->
-exec { 'enable proxy support':
+}
+-> exec { 'enable proxy support':
   command => '/bin/echo ". /etc/profile.d/proxy.sh" >> /etc/default/grafana-server'
 }
 

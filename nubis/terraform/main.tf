@@ -3,41 +3,41 @@ provider "aws" {
 }
 
 module "info" {
-  source    = "github.com/nubisproject/nubis-terraform//info?ref=v2.0.4"
+  source      = "github.com/nubisproject/nubis-terraform//info?ref=v2.0.4"
   region      = "${var.region}"
   environment = "${var.environment}"
   account     = "${var.account}"
 }
 
 module "worker" {
-  source        = "github.com/nubisproject/nubis-terraform//worker?ref=v2.0.4"
-  region        = "${var.region}"
-  environment   = "${var.environment}"
-  account       = "${var.account}"
-  service_name  = "${var.service_name}"
-  purpose       = "webserver"
-  ami           = "${var.ami}"
-  instance_type = "${var.instance_type}"
-  elb           = "${module.load_balancer.name}"
+  source                    = "github.com/nubisproject/nubis-terraform//worker?ref=v2.0.4"
+  region                    = "${var.region}"
+  environment               = "${var.environment}"
+  account                   = "${var.account}"
+  service_name              = "${var.service_name}"
+  purpose                   = "webserver"
+  ami                       = "${var.ami}"
+  instance_type             = "${var.instance_type}"
+  elb                       = "${module.load_balancer.name}"
   wait_for_capacity_timeout = "20m"
-  min_instances         = 1
-  root_storage_size     = 64
-  nubis_sudo_groups     = "nubis_global_admins,team_moc"
-  security_group_custom = true
-  security_group        = "${aws_security_group.aggregrator-extra.id}"
+  min_instances             = 1
+  root_storage_size         = 64
+  nubis_sudo_groups         = "nubis_global_admins,team_moc"
+  security_group_custom     = true
+  security_group            = "${aws_security_group.aggregrator-extra.id}"
 }
 
 resource "aws_security_group" "aggregrator-extra" {
   name_prefix = "${var.service_name}-${var.environment}-"
   vpc_id      = "${module.info.vpc_id}"
 
-  tags        = {
-    Name            = "${var.service_name}-${var.environment}"
-    Region          = "${var.region}"
-    Environment     = "${var.environment}"
-    TechnicalOwner  = "${var.technical_owner}"
-    Backup          = "true"
-    Shutdown        = "never"
+  tags = {
+    Name           = "${var.service_name}-${var.environment}"
+    Region         = "${var.region}"
+    Environment    = "${var.environment}"
+    TechnicalOwner = "${var.technical_owner}"
+    Backup         = "true"
+    Shutdown       = "never"
   }
 
   ingress {
@@ -52,11 +52,12 @@ resource "aws_security_group" "aggregrator-extra" {
 
   # allow sso to communicate with grafana
   ingress {
-    from_port       = "3000"
-    to_port         = "3000"
-    protocol        = "tcp"
+    from_port = "3000"
+    to_port   = "3000"
+    protocol  = "tcp"
+
     security_groups = [
-      "${module.info.sso_security_group}"
+      "${module.info.sso_security_group}",
     ]
   }
 
@@ -87,7 +88,6 @@ resource "aws_security_group" "aggregrator-extra" {
     create_before_destroy = true
   }
 }
-
 
 module "load_balancer" {
   source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.0.4"
