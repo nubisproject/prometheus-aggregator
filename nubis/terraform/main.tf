@@ -3,14 +3,14 @@ provider "aws" {
 }
 
 module "info" {
-  source      = "github.com/nubisproject/nubis-terraform//info?ref=v2.0.4"
+  source      = "github.com/nubisproject/nubis-terraform//info?ref=v2.2.0"
   region      = "${var.region}"
   environment = "${var.environment}"
   account     = "${var.account}"
 }
 
 module "worker" {
-  source                    = "github.com/nubisproject/nubis-terraform//worker?ref=v2.0.4"
+  source                    = "github.com/nubisproject/nubis-terraform//worker?ref=v2.2.0"
   region                    = "${var.region}"
   environment               = "${var.environment}"
   account                   = "${var.account}"
@@ -90,7 +90,7 @@ resource "aws_security_group" "aggregrator-extra" {
 }
 
 module "load_balancer" {
-  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.0.4"
+  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.2.0"
   region       = "${var.region}"
   environment  = "${var.environment}"
   account      = "${var.account}"
@@ -108,7 +108,7 @@ module "load_balancer" {
 }
 
 module "dns" {
-  source       = "github.com/nubisproject/nubis-terraform//dns?ref=v2.0.4"
+  source       = "github.com/nubisproject/nubis-terraform//dns?ref=v2.2.0"
   region       = "${var.region}"
   environment  = "${var.environment}"
   account      = "${var.account}"
@@ -118,7 +118,7 @@ module "dns" {
 }
 
 module "backups" {
-  source       = "github.com/nubisproject/nubis-terraform//bucket?ref=v2.0.4"
+  source       = "github.com/nubisproject/nubis-terraform//bucket?ref=v2.2.0"
   region       = "${var.region}"
   environment  = "${var.environment}"
   account      = "${var.account}"
