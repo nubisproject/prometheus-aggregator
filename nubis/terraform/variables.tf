@@ -15,7 +15,7 @@ variable "service_name" {
 }
 
 variable "instance_type" {
-  default = "t2.medium"
+  default = "m5.large"
 }
 
 variable "technical_owner" {
