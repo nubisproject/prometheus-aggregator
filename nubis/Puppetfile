@@ -2,23 +2,19 @@ forge "https://forgeapi.puppetlabs.com"
 
 mod 'gozer/nubis_prometheus',
     :git => 'https://github.com/gozer/nubis-puppet-prometheus.git',
-    :branch => 'master'
-#    :ref => 'f1da3bb6910802e360813cdfe91f105b15501d5a'
+    :ref => 'bbda69907a6549c114f864ae33f2ddf4dae9381f'
 
 mod 'gozer/nubis_alertmanager',
     :git => 'https://github.com/gozer/nubis-puppet-alertmanager.git',
-    :branch => 'master'
-    #:ref => 'd0019f9e67f423a2bf09b663e46097221fd640cd'
+    :ref => '3976d40e235af98c8421dab704a94bedbb008aa8'
 
 mod 'gozer/nubis_traefik',
     :git => 'https://github.com/gozer/nubis-puppet-traefik.git',
-    :branch => 'master'
-    #:ref => '6a3c852f6e80a0eb66014845e3933671261bfce3'
+    :ref => 'e20bf612f2530a247202b59b059b1b6406aa3fc0'
 
 mod 'gozer/nubis_grafana',
     :git => 'https://github.com/gozer/nubis-puppet-grafana.git',
-    :branch => 'master'
-    #:ref => '36cbb5a0b4b69cdb67b552b19293df351aec8abe'
+    :ref => '36cbb5a0b4b69cdb67b552b19293df351aec8abe'
 
 mod 'bfraser/grafana',
     :git => 'https://github.com/bfraser/puppet-grafana.git',
