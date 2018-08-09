@@ -7,6 +7,6 @@
     "project_description": "Prometheus Aggregator",
     "project_name": "federator",
     "source_ami_project_version": "v2.3.0",
-    "project_version": "v2.3.0_git.gozer.{{env `GIT_COMMIT_SHA`}}"
+    "project_version": "v2.3.0_git.{{env `GIT_COMMIT_SHA`}}"
   }
 }
